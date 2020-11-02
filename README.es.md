@@ -3,19 +3,19 @@ Auctores
 
 *Terminat hora diem; terminat auctor opus.*
 
-![Erasmus of Rotterdam by Albrecht Dürer](picturae/erasmus.jpg) 
+![Erasmo de Rotterdam de Alberto Durero](picturae/erasmus.jpg) 
 
-[LÉAME en español](README.es.md)
+[README in English](../../)
 
-**This is an art project**. What if classical authors had written their masterpieces by pushing commits to a Git repository.
+**Este es un proyecto artístico**. Cómo hubiese sido si los autores clásicos hubiesen escrito sus obras maestras con *commits* a un repositorio de Git.
 
-Requirements
-------------
+Requisitos
+----------
 
-- Linux or macOS (it might work on Windows using WSL2 or MSYS2; don’t ask me about it)
-- GNU `bash`, `make` and `date`
+- Linux o macOS (podría funcionar en Windows con WSL2 o MSYS2; no me pregunten)
+- GNU `bash`, `make` y `date`
 
-NOTE: On macOS you must install the GNU coreutils, make and Bash using [Homebrew](https://brew.sh):
+NOTA: en macOS es necesario instalar los GNU coreutils, make y Bash con [Homebrew](https://brew.sh):
 
 ```sh
 brew install coreutils
@@ -23,32 +23,32 @@ brew install bash
 brew install make
 ```
 
-Configuration
+Configuración
 -------------
 
-Copy `auctoresrc.exemplum` to `.auctoresrc` and edit the latter.
+Copie `auctoresrc.exemplum` a `.auctoresrc` y edite este último.
 
-Running the project
--------------------
+Para ejecutar el proyecto
+-------------------------
 
-Run the preliminaries:
+Ejecute los preliminares:
 
 ```sh
 make anterem
 ```
 
-If your environment supports cron, you can install a cronjob using:
+Si su entorno tiene cron, puede instalar un cronjob con:
 
 ```sh
 make scribere
 ```
 
-The cronjob will (occasionally) write to the output directory (by default `./exitum`) following a pseudo-random pattern.
+El cronjob (ocasionalmente) escribe al directorio de salida (por omisión `./exitum`) conforme a un patrón pseudo-aleatorio.
 
-Or you can just manually run `./bin/scribere` from time to time.
+O simplemente ejecute manualmente de vez en cuando `./bin/scribere`.
 
-Text corpus
------------
+Corpus de texto
+---------------
 
 - “El ingenioso hidalgo don Quijote de la Mancha” de Miguel de Cervantes Saavedra
 - “La vida de Lazarillo de Tormes y de sus fortunas y adversidades” de autor anónimo

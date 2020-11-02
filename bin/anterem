@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+PROG=$( basename "$0" )
+RC=.auctoresrc
+
+die() {
+	[ -n "$1" ] && >&2 echo "$PROG: $1"
+	exit 1
+}
+
+e=2.7182818284
+SCALE=32000
+
+# Poisson pseudo-random distribution, based on Knuth’s algorithm
+poisson() {
+	lambda=$1
+	L=$( echo "$SCALE / $e ^ $lambda" | bc --mathlib )
+	k=0
+	p=$SCALE
+	while (( $( echo "$p > $L" | bc --mathlib ) )); do
+		(( k=k + 1 ))
+		(( u=$RANDOM % $SCALE ))
+		p=$( echo "$p / $SCALE * $u" | bc --mathlib )
+	done
+	(( k=$k - 1 ))
+	echo "$k"
+}
+
+if [ "${OSTYPE:0:6}" == "darwin" ]; then
+	DATE=/usr/local/opt/coreutils/libexec/gnubin/date
+elif [ "${OSTYPE:0:5}" == "linux" ]; then
+	DATE=/usr/bin/date
+fi
+
+[ -f "$DATE" ] || die "no GNU coreutils compatible 'date' found"
+
+bin=$( dirname "$0" )
+home=$bin/..
+
+source $home/$RC || die "missing $RC"
+
+a=$( $DATE --date="$start" +%s )
+b=$( $DATE +%s )
+
+t=$a
+while [ $t -lt $b ]; do
+	n=$( poisson 1 )
+	if [ $n -gt 0 ]; then
+		(( period=(24 * 60 * 60) / $n ))
+		for i in $( seq 1 $n ); do
+			(( t=$t + $period ))
+			(( tx=$t - $RANDOM % $period ))
+			when=$( $DATE --date="@${tx}" +"%Y-%m-%d %H:%M:%S" ) $bin/mutatio
+		done
+	else
+		(( t=$t + 24 * 60 * 60 ))
+	fi
+done
+
+if [ "$1" == "urgeo" ]; then
+	cd $home
+	for remote in "${remotes[@]}"; do
+		git push $remote $branch
+	done
+fi

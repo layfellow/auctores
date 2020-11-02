@@ -1,0 +1,9 @@
+remotes=(origin)
+branch=master
+start=2020-08-08T14:15:29
+
+text="./corpus/El ingenioso hidalgo don Quijote de la Mancha.txt"
+# text="./corpus/Faust - Der Tragödie.txt"
+# text="./corpus/The Merchant of Venice.txt"
+
+output=./exitum
