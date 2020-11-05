@@ -7,7 +7,7 @@ Auctores
 
 [LÉAME en español](README.es.md)
 
-**This is an art project**. What if classical authors had written their masterpieces by pushing commits to a Git repository.
+**This is a pointless art project** (No one said that art had to make sense.) Let a cronjob write a literary masterpiece by periodically pushing commits to a Git repository. This is a more like a study on using Bash scripts to drive `git`.
 
 Requirements
 ------------

@@ -7,7 +7,7 @@ Auctores
 
 [README in English](../../)
 
-**Este es un proyecto artístico**. Cómo hubiese sido si los autores clásicos hubiesen escrito sus obras maestras con *commits* a un repositorio de Git.
+**Este es un proyecto artístico sin sentido**. (Nadie dijo que el arte debía tener sentido.) Que un cronjob escriba una famosa obra literaria con commits periódicos a un repositorio Git. Es más un estudio del uso de scripts Bash para controlar `git`.
 
 Requisitos
 ----------
